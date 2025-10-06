@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+body {
+    font-family: "Open Sans", sans-serif;
+    color: theme("colors.text");
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Custom components */
+.btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-text transition-colors duration-300 shadow-lg hover:shadow-xl;
+}
+
+.btn-accent {
+    @apply bg-accent text-text px-6 py-3 rounded-lg font-semibold hover:bg-secondary transition-colors duration-300 shadow-lg hover:shadow-xl;
+}
+
+.section-padding {
+    @apply py-16 px-4;
+}
+
+.container-custom {
+    @apply max-w-7xl mx-auto;
+}
+
+/* Hero section styles */
+.hero-gradient {
+    background: linear-gradient(
+        135deg,
+        theme("colors.primary") 0%,
+        theme("colors.text") 100%
+    );
+}
+
+/* Text animations */
+.text-glow {
+    text-shadow: 0 0 20px rgba(255, 203, 154, 0.6);
+}
+
+/* Music note animation */
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Professional enhancements */
+.card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+.text-muted {
+    @apply text-gray-600;
+}
+
+.border-subtle {
+    @apply border-gray-200;
+}
+
+.bg-subtle {
+    @apply bg-gray-50;
+}

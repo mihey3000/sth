@@ -1,0 +1,1 @@
+export default ["red","amber","lime","emerald","cyan","sky","violet","purple","fuchsia","pink","rose","primary"];
