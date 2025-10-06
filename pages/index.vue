@@ -91,9 +91,7 @@
                                 />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3">
-                            Профессионализм
-                        </h3>
+
                         <p class="text-gray-600">
                             Более 5 лет опыта выступлений на корпоративах,
                             свадьбах и частных мероприятиях
@@ -105,7 +103,7 @@
                             class="w-16 h-16 bg-light rounded-full flex items-center justify-center mx-auto mb-4"
                         >
                             <svg
-                                class="w-8 h-8 text-accent"
+                                class="w-8 h-8 text-primary"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -118,7 +116,6 @@
                                 />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3">Эмоции</h3>
                         <p class="text-gray-600">
                             Создаем атмосферу, где коллеги становятся друзьями,
                             а рабочий коллектив - семьей
@@ -143,7 +140,6 @@
                                 />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3">Качество</h3>
                         <p class="text-gray-600">
                             Современное оборудование и тщательно подобранный
                             репертуар для каждого мероприятия
@@ -281,7 +277,7 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="bg-primary text-white section-padding">
+        <section class="hero-gradient text-white section-padding">
             <div class="container-custom text-center">
                 <h2 class="text-4xl font-bold mb-6">
                     Готовы создать незабываемое мероприятие?

@@ -158,13 +158,9 @@
                         <div class="space-y-2 text-gray-300">
                             <p>+7 (XXX) XXX-XX-XX</p>
                             <p>info@stereohit.ru</p>
-                            <p>Москва, Россия</p>
+                            <p>Нягань, Россия</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                    <p>&copy; 2026 СтереоХит. Все права защищены.</p>
                 </div>
             </div>
         </footer>
