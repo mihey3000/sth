@@ -1,168 +1,24 @@
 <template>
     <div>
-        <!-- Hero Section -->
-        <section class="hero-gradient text-white section-padding">
-            <div class="container-custom">
-                <div class="text-center">
-                    <h1 class="text-5xl font-bold mb-6">Галерея</h1>
-                    <p class="text-xl text-gray-200 max-w-3xl mx-auto">
-                        Посмотрите на наши выступления и почувствуйте атмосферу,
-                        которую мы создаем на каждом мероприятии
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Фильтры -->
-        <section class="section-padding bg-gray-50">
-            <div class="container-custom">
-                <div class="max-w-4xl mx-auto">
-                    <div class="flex flex-wrap gap-4 justify-center mb-8">
-                        <button v-for="category in categories" :key="category"
-                            @click="selectedCategory = selectedCategory === category ? null : category" :class="[
-                                'px-6 py-2 rounded-full font-medium transition-colors',
-                                selectedCategory === category
-                                    ? 'bg-primary text-white'
-                                    : 'bg-white text-gray-700 hover:bg-gray-100'
-                            ]">
-                            {{ category }}
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Фото галерея -->
-        <section class="section-padding">
-            <div class="container-custom">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div v-for="(item, index) in filteredGallery" :key="item.id" class="group cursor-pointer"
-                        @click="openLightbox(index)">
-                        <div
-                            class="relative overflow-hidden rounded-lg shadow-lg group-hover:shadow-xl transition-shadow">
-                            <div class="aspect-w-16 aspect-h-12 bg-gray-200 flex items-center justify-center">
-                                <span class="text-gray-500 text-lg">{{ item.type === 'photo' ? 'Фото' : 'Видео'
-                                }}</span>
-                            </div>
-                            <div
-                                class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                                <div class="opacity-0 group-hover:opacity-100 transition-opacity">
-                                    <svg v-if="item.type === 'video'" class="w-16 h-16 text-white" fill="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z" />
-                                    </svg>
-                                    <svg v-else class="w-16 h-16 text-white" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div
-                                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-                                <h3 class="text-white font-semibold mb-1">{{ item.title }}</h3>
-                                <p class="text-gray-200 text-sm">{{ item.description }}</p>
-                                <div class="flex items-center mt-2">
-                                    <span class="px-2 py-1 bg-white bg-opacity-20 text-white text-xs rounded-full">{{
-                                        item.category }}</span>
-                                    <span class="ml-2 text-gray-300 text-xs">{{ item.date }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Кнопка "Показать еще" -->
-                <div v-if="hasMoreItems" class="text-center mt-12">
-                    <button @click="loadMore" class="btn-primary px-8 py-3">
-                        Показать еще
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Видео отзывы -->
-        <section class="section-padding bg-gray-50">
-            <div class="container-custom">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Видео отзывы</h2>
-                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                        Послушайте, что говорят наши клиенты о выступлениях СтереоХит
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div v-for="testimonial in videoTestimonials" :key="testimonial.id"
-                        class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="aspect-w-16 aspect-h-9 bg-gray-200 flex items-center justify-center">
-                            <span class="text-gray-500">Видео отзыв</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-semibold mb-2">{{ testimonial.clientName }}</h3>
-                            <p class="text-gray-600 mb-4">{{ testimonial.event }}</p>
-                            <div class="flex items-center">
-                                <div class="flex text-accent">
-                                    <svg v-for="i in 5" :key="i" class="w-4 h-4" fill="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
-                                </div>
-                                <span class="ml-2 text-gray-600 text-sm">{{ testimonial.rating }}/5</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="hero-gradient text-white section-padding">
-            <div class="container-custom text-center">
-                <h2 class="text-4xl font-bold mb-6">
-                    Хотите стать частью нашей галереи?
-                </h2>
-                <p class="text-xl mb-8 text-gray-200 max-w-2xl mx-auto">
-                    Закажите выступление и создайте незабываемые воспоминания вместе с нами
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button class="btn-accent text-lg px-8 py-4">
-                        Заказать выступление
-                    </button>
-                    <button
-                        class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors text-lg">
-                        Посмотреть портфолио
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Lightbox Modal -->
-        <div v-if="lightboxOpen" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
-            @click="closeLightbox">
-            <div class="relative max-w-4xl max-h-full">
-                <button @click="closeLightbox"
-                    class="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-                <div class="bg-white rounded-lg p-6">
-                    <div class="aspect-w-16 aspect-h-9 bg-gray-200 flex items-center justify-center mb-4">
-                        <span class="text-gray-500 text-lg">
-                            {{ currentLightboxItem?.type === 'video' ? 'Видео' : 'Фото' }}
-                        </span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">{{ currentLightboxItem?.title }}</h3>
-                    <p class="text-gray-600">{{ currentLightboxItem?.description }}</p>
-                </div>
-            </div>
-        </div>
+        <GalleryHero />
+        <GalleryFilters :categories="categories" v-model:selected-category="selectedCategory" />
+        <GalleryGrid :filtered-gallery="filteredGallery" :has-more-items="hasMoreItems" @open-lightbox="openLightbox"
+            @load-more="loadMore" />
+        <VideoTestimonials :video-testimonials="videoTestimonials" />
+        <GalleryCTA />
+        <LightboxModal :is-open="lightboxOpen" :current-item="currentLightboxItem" @close="closeLightbox" />
     </div>
 </template>
 
 <script setup>
+// Импорты компонентов галереи
+import GalleryHero from '~/components/gallery/GalleryHero.vue'
+import GalleryFilters from '~/components/gallery/GalleryFilters.vue'
+import GalleryGrid from '~/components/gallery/GalleryGrid.vue'
+import VideoTestimonials from '~/components/gallery/VideoTestimonials.vue'
+import GalleryCTA from '~/components/gallery/GalleryCTA.vue'
+import LightboxModal from '~/components/gallery/LightboxModal.vue'
+
 // SEO
 useHead({
     title: 'Галерея СтереоХит - Фото и видео наших выступлений',
