@@ -9,6 +9,13 @@
 </template>
 
 <script setup>
+// Импорты компонентов страницы О группе
+import AboutHero from '~/components/about/AboutHero.vue'
+import HistorySection from '~/components/about/HistorySection.vue'
+import TeamSection from '~/components/about/TeamSection.vue'
+import AchievementsSection from '~/components/about/AchievementsSection.vue'
+import AboutCTA from '~/components/about/AboutCTA.vue'
+
 useHead({
     title: 'О группе СтереоХит - Наша команда и история',
     meta: [

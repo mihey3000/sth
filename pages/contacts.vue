@@ -15,6 +15,13 @@
 </template>
 
 <script setup>
+// Импорты компонентов страницы контактов
+import ContactsHero from '~/components/contacts/ContactsHero.vue'
+import ContactInfo from '~/components/contacts/ContactInfo.vue'
+import ContactForm from '~/components/contacts/ContactForm.vue'
+import FAQSection from '~/components/contacts/FAQSection.vue'
+import ContactsCTA from '~/components/contacts/ContactsCTA.vue'
+
 // SEO
 useHead({
     title: 'Контакты СтереоХит - Заказать выступление кавер группы',

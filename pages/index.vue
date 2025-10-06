@@ -8,6 +8,12 @@
 </template>
 
 <script setup>
+// Импорты компонентов главной страницы
+import HeroSection from '~/components/home/HeroSection.vue'
+import AboutSection from '~/components/home/AboutSection.vue'
+import ServicesPreview from '~/components/home/ServicesPreview.vue'
+import CTASection from '~/components/home/CTASection.vue'
+
 // SEO
 useHead({
     title: "СтереоХит - Кавер группа для корпоративов, свадеб и праздников",
