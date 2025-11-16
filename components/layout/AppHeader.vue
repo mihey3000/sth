@@ -3,7 +3,7 @@
         <div class="container-custom">
             <nav class="flex items-center justify-between py-4">
                 <!-- Logo -->
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center space-x-2 p-2">
                     <span class="text-2xl font-bold text-primary">СтереоХит</span>
                 </div>
 
@@ -30,7 +30,7 @@
                     <NuxtLink to="/contacts" class="text-gray-700 hover:text-primary font-medium transition-colors">
                         Контакты
                     </NuxtLink>
-                    <button class="btn-primary">
+                    <button v-if="false" class="btn-primary">
                         Заказать выступление
                     </button>
                 </div>
@@ -45,7 +45,7 @@
             </nav>
 
             <!-- Mobile Navigation -->
-            <div v-if="mobileMenuOpen" class="md:hidden py-4 border-t">
+            <div v-if="mobileMenuOpen" class="md:hidden p-4 border-t">
                 <div class="flex flex-col space-y-4">
                     <NuxtLink to="/" class="text-gray-700 hover:text-primary font-medium transition-colors">
                         Главная
@@ -68,7 +68,7 @@
                     <NuxtLink to="/contacts" class="text-gray-700 hover:text-primary font-medium transition-colors">
                         Контакты
                     </NuxtLink>
-                    <button class="btn-primary w-full">
+                    <button v-if="false" class="btn-primary w-full">
                         Заказать выступление
                     </button>
                 </div>
