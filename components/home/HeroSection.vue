@@ -37,7 +37,7 @@
 
 <script setup lang="ts">
 import useContacts from "~/composables/contacts/useContacts";
-import heroImage2 from 'assets/img/hero.jpg'
+import heroImage2 from 'assets/img/hero.png'
 
 const {callPhone, phone} = useContacts()
 </script>
