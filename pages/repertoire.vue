@@ -1,7 +1,7 @@
 <template>
   <div>
     <RepertoireHero/>
-    <SearchFilters v-model:search-query="searchQuery" v-model:selected-genre="selectedGenre" :genres="genres"
+    <SearchFilters v-if="showFilters" v-model:search-query="searchQuery" v-model:selected-genre="selectedGenre" :genres="genres"
                    :filtered-songs-count="filteredSongs.length" :unique-artists="uniqueArtists"
                    :unique-genres="uniqueGenres"
                    :unique-decades="uniqueDecades"/>
@@ -32,6 +32,7 @@ useHead({
 })
 
 // Реактивные данные
+const showFilters = ref(false)
 const searchQuery = ref('')
 const selectedGenre = ref(null)
 const currentPage = ref(1)
@@ -43,219 +44,45 @@ const genres = ['Поп', 'Рок', 'Джаз', 'Ретро', 'Классика'
 
 // Пример данных песен
 const songs = ref([
-  // Русские хиты
-  {
-    id: 1,
-    title: 'Виновата ли я',
-    artist: 'Алла Пугачева',
-    genre: 'Поп',
-    decade: '80е',
-    language: 'Русский',
-    popular: true
-  },
-  {
-    id: 2,
-    title: 'Миллион алых роз',
-    artist: 'Алла Пугачева',
-    genre: 'Поп',
-    decade: '80е',
-    language: 'Русский',
-    popular: true
-  },
-  {
-    id: 3,
-    title: 'Земля в иллюминаторе',
-    artist: 'ВИА "Земляне"',
-    genre: 'Поп',
-    decade: '80е',
-    language: 'Русский',
-    popular: true
-  },
-  {id: 4, title: 'Кукушка', artist: 'Виктор Цой', genre: 'Рок', decade: '80е', language: 'Русский', popular: true},
-  {id: 5, title: 'Группа крови', artist: 'Виктор Цой', genre: 'Рок', decade: '80е', language: 'Русский', popular: true},
-  {
-    id: 6,
-    title: 'Звезда по имени Солнце',
-    artist: 'Виктор Цой',
-    genre: 'Рок',
-    decade: '80е',
-    language: 'Русский',
-    popular: true
-  },
-  {id: 7, title: 'На заре', artist: 'Альянс', genre: 'Поп', decade: '80е', language: 'Русский', popular: false},
-  {id: 8, title: 'Спокойной ночи', artist: 'Альянс', genre: 'Поп', decade: '80е', language: 'Русский', popular: false},
-
-  // Зарубежные хиты
-  {
-    id: 9,
-    title: 'Hotel California',
-    artist: 'Eagles',
-    genre: 'Рок',
-    decade: '70е',
-    language: 'Английский',
-    popular: true
-  },
-  {
-    id: 10,
-    title: 'Bohemian Rhapsody',
-    artist: 'Queen',
-    genre: 'Рок',
-    decade: '70е',
-    language: 'Английский',
-    popular: true
-  },
-  {id: 11, title: 'Imagine', artist: 'John Lennon', genre: 'Поп', decade: '70е', language: 'Английский', popular: true},
-  {
-    id: 12,
-    title: 'Yesterday',
-    artist: 'The Beatles',
-    genre: 'Поп',
-    decade: '60е',
-    language: 'Английский',
-    popular: true
-  },
-  {
-    id: 13,
-    title: 'Sweet Child O\' Mine',
-    artist: 'Guns N\' Roses',
-    genre: 'Рок',
-    decade: '80е',
-    language: 'Английский',
-    popular: true
-  },
-  {id: 14, title: 'Wonderwall', artist: 'Oasis', genre: 'Рок', decade: '90е', language: 'Английский', popular: true},
-  {
-    id: 15,
-    title: 'Smells Like Teen Spirit',
-    artist: 'Nirvana',
-    genre: 'Рок',
-    decade: '90е',
-    language: 'Английский',
-    popular: true
-  },
-  {
-    id: 16,
-    title: 'Billie Jean',
-    artist: 'Michael Jackson',
-    genre: 'Поп',
-    decade: '80е',
-    language: 'Английский',
-    popular: true
-  },
-
-  // Джаз
-  {
-    id: 17,
-    title: 'Take Five',
-    artist: 'Dave Brubeck',
-    genre: 'Джаз',
-    decade: '60е',
-    language: 'Инструментальная',
-    popular: false
-  },
-  {
-    id: 18,
-    title: 'Blue Moon',
-    artist: 'Frank Sinatra',
-    genre: 'Джаз',
-    decade: '50е',
-    language: 'Английский',
-    popular: false
-  },
-  {
-    id: 19,
-    title: 'Summertime',
-    artist: 'Ella Fitzgerald',
-    genre: 'Джаз',
-    decade: '50е',
-    language: 'Английский',
-    popular: false
-  },
-  {
-    id: 20,
-    title: 'Fly Me to the Moon',
-    artist: 'Frank Sinatra',
-    genre: 'Джаз',
-    decade: '60е',
-    language: 'Английский',
-    popular: false
-  },
-
-  // Современная музыка
-  {
-    id: 21,
-    title: 'Shape of You',
-    artist: 'Ed Sheeran',
-    genre: 'Поп',
-    decade: '2010е',
-    language: 'Английский',
-    popular: true
-  },
-  {
-    id: 22,
-    title: 'Despacito',
-    artist: 'Luis Fonsi',
-    genre: 'Поп',
-    decade: '2010е',
-    language: 'Испанский',
-    popular: true
-  },
-  {
-    id: 23,
-    title: 'Perfect',
-    artist: 'Ed Sheeran',
-    genre: 'Поп',
-    decade: '2010е',
-    language: 'Английский',
-    popular: true
-  },
-  {
-    id: 24,
-    title: 'Blinding Lights',
-    artist: 'The Weeknd',
-    genre: 'Поп',
-    decade: '2020е',
-    language: 'Английский',
-    popular: true
-  },
-
-  // Классика
-  {
-    id: 25,
-    title: 'Can\'t Help Myself',
-    artist: 'Four Tops',
-    genre: 'Ретро',
-    decade: '60е',
-    language: 'Английский',
-    popular: false
-  },
-  {
-    id: 26,
-    title: 'My Girl',
-    artist: 'The Temptations',
-    genre: 'Ретро',
-    decade: '60е',
-    language: 'Английский',
-    popular: false
-  },
-  {
-    id: 27,
-    title: 'Stand by Me',
-    artist: 'Ben E. King',
-    genre: 'Ретро',
-    decade: '60е',
-    language: 'Английский',
-    popular: true
-  },
-  {
-    id: 28,
-    title: 'Unchained Melody',
-    artist: 'The Righteous Brothers',
-    genre: 'Ретро',
-    decade: '60е',
-    language: 'Английский',
-    popular: true
-  },
+  {id: 1, title: 'Шелк', artist: 'Ваня Дмитриенко', genre: null, decade: null, language: null, popular: false},
+  {id: 2, title: 'Чудная Долина', artist: 'Mr. Credo', genre: null, decade: null, language: null, popular: false},
+  {id: 3, title: 'Седая ночь', artist: 'Ю. Шатунов', genre: null, decade: null, language: null, popular: false},
+  {id: 4, title: 'Кухни', artist: 'Бонд с кнопкой', genre: null, decade: null, language: null, popular: false},
+  {id: 5, title: 'Ай-яй-яй', artist: 'Руки Вверх', genre: null, decade: null, language: null, popular: false},
+  {id: 6, title: 'Привет', artist: 'Женя Трофимов', genre: null, decade: null, language: null, popular: false},
+  {id: 7, title: 'Кукла колдуна', artist: 'Король и Шут', genre: null, decade: null, language: null, popular: false},
+  {id: 8, title: 'Земля в иллюминаторе', artist: 'Земляне', genre: null, decade: null, language: null, popular: false},
+  {id: 9, title: 'Поезда', artist: 'Женя Трофимов', genre: null, decade: null, language: null, popular: false},
+  {id: 10, title: 'Как на войне', artist: 'Агата Кристи', genre: null, decade: null, language: null, popular: false},
+  {id: 11, title: 'It’s my life', artist: 'Bon Jovi', genre: null, decade: null, language: null, popular: false},
+  {id: 12, title: '18 мне уже', artist: 'Руки Вверх', genre: null, decade: null, language: null, popular: false},
+  {id: 13, title: 'Знаешь', artist: 'Rozhden', genre: null, decade: null, language: null, popular: false},
+  {id: 14, title: 'Белые розы', artist: 'Ю. Шатунов', genre: null, decade: null, language: null, popular: false},
+  {id: 15, title: 'Группа крови', artist: 'В. Цой', genre: null, decade: null, language: null, popular: false},
+  {id: 16, title: 'Лесник', artist: 'Король и Шут', genre: null, decade: null, language: null, popular: false},
+  {id: 17, title: 'Районы-кварталы', artist: 'Звери', genre: null, decade: null, language: null, popular: false},
+  {id: 18, title: 'Тополиный пух', artist: 'Иванушки International', genre: null, decade: null, language: null, popular: false},
+  {id: 19, title: 'Пожары', artist: 'Xolidayboy', genre: null, decade: null, language: null, popular: false},
+  {id: 20, title: 'Если тебе будет грустно', artist: 'Niletto', genre: null, decade: null, language: null, popular: false},
+  {id: 21, title: 'Просто такая сильная любовь', artist: 'Звери', genre: null, decade: null, language: null, popular: false},
+  {id: 22, title: 'Раневская', artist: 'Akmal', genre: null, decade: null, language: null, popular: false},
+  {id: 23, title: 'Бабушка курит трубку', artist: 'Гарик Сукачев', genre: null, decade: null, language: null, popular: false},
+  {id: 24, title: 'Сансара', artist: 'Баста', genre: null, decade: null, language: null, popular: false},
+  {id: 25, title: 'Лететь', artist: 'Амега', genre: null, decade: null, language: null, popular: false},
+  {id: 26, title: 'Ночь', artist: 'А. Губин', genre: null, decade: null, language: null, popular: false},
+  {id: 27, title: 'По барам', artist: 'Anna Asti', genre: null, decade: null, language: null, popular: false},
+  {id: 28, title: 'Tutti Frutti', artist: 'Little Richard', genre: null, decade: null, language: null, popular: false},
+  {id: 29, title: 'Женщина воздух', artist: 'Сергей Куренков', genre: null, decade: null, language: null, popular: false},
+  {id: 30, title: 'Есть только миг', artist: 'Олег Анофриев', genre: null, decade: null, language: null, popular: false},
+  {id: 31, title: 'Медлячок', artist: 'Баста', genre: null, decade: null, language: null, popular: false},
+  {id: 32, title: 'Пусть она поет', artist: 'Женя Трофимов', genre: null, decade: null, language: null, popular: false},
+  {id: 33, title: 'Седьмой лепесток', artist: 'Антон Токарев', genre: null, decade: null, language: null, popular: false},
+  {id: 34, title: 'Птичка', artist: 'HammAli & Navai', genre: null, decade: null, language: null, popular: false},
+  {id: 35, title: 'Как быть', artist: 'Bittuev, Nansi & Sidorov', genre: null, decade: null, language: null, popular: false},
+  {id: 36, title: 'Девушки, как звёзды', artist: 'А. Губин', genre: null, decade: null, language: null, popular: false},
+  {id: 37, title: 'Новый год', artist: 'VESNA305', genre: null, decade: null, language: null, popular: false},
+  {id: 38, title: 'Новая новогодняя', artist: 'VESNA305', genre: null, decade: null, language: null, popular: false},
+  {id: 39, title: 'Ты – музыкант', artist: 'Стерео-хит', genre: null, decade: null, language: null, popular: false},
 ])
 
 // Вычисляемые свойства

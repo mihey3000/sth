@@ -10,10 +10,12 @@
                                 <h3 class="text-lg font-semibold text-gray-900 mb-1">{{ song.title }}</h3>
                                 <p class="text-gray-600 mb-2">{{ song.artist }}</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-2 py-1 bg-light text-primary text-xs rounded-full">{{
-                                        song.genre }}</span>
-                                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">{{
-                                        song.decade }}</span>
+                                    <span v-if="song.genre"
+                                        class="px-2 py-1 bg-light text-primary text-xs rounded-full">{{ song.genre
+                                        }}</span>
+                                    <span v-if="song.decade"
+                                        class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">{{ song.decade
+                                        }}</span>
                                     <span v-if="song.language"
                                         class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">{{
                                             song.language }}</span>
