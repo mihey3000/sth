@@ -14,11 +14,8 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Корпоративы -->
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-          <div class="h-48 bg-gradient-to-br from-primary to-text flex items-center justify-center">
-            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-            </svg>
+          <div class="h-48 bg-gradient-to-br from-primary to-text flex items-center justify-center  overflow-hidden">
+            <img :src="corpImage" alt="">
           </div>
           <div class="p-6">
             <h3 class="text-2xl font-bold mb-3">Корпоративы</h3>
@@ -35,11 +32,8 @@
 
         <!-- Свадьбы -->
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-          <div class="h-48 bg-gradient-to-br from-secondary to-accent flex items-center justify-center">
-            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-            </svg>
+          <div class="h-48 bg-gradient-to-br from-secondary to-accent flex items-center justify-center overflow-hidden">
+            <img :src="weddingImage" alt="">
           </div>
           <div class="p-6">
             <h3 class="text-2xl font-bold mb-3">Свадьбы</h3>
@@ -56,11 +50,9 @@
 
         <!-- Дни рождения -->
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-          <div class="h-48 bg-gradient-to-br from-accent to-secondary flex items-center justify-center">
-            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0A2.704 2.704 0 003 15.546V12a9 9 0 0118 0v3.546z"/>
-            </svg>
+          <div
+              class="h-48 bg-gradient-to-br from-accent to-secondary flex items-center justify-center  overflow-hidden">
+            <img :src="birthDateImage" alt="">
           </div>
           <div class="p-6">
             <h3 class="text-2xl font-bold mb-3">
@@ -81,4 +73,7 @@
   </section>
 </template>
 <script setup lang="ts">
+import birthDateImage from 'assets/img/birthDate.jpg'
+import corpImage from 'assets/img/corp.jpg'
+import weddingImage from 'assets/img/wedding.jpg'
 </script>
