@@ -1,7 +1,8 @@
 const useContacts = () => {
-    const phone = `+7 (982) 540 26 87`
+    const phone = `+7 (982) 540-26-87`
     const email = `info@stereohit.ru`
-    return  {phone,email}
+    const city = `Нягань, Россия`
+    return {phone, email, city}
 }
 
 export default useContacts

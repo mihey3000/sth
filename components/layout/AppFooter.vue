@@ -47,7 +47,8 @@
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/gallery" class="text-gray-300 hover:text-white transition-colors">Галерея
+              <NuxtLink to="/gallery" class="text-gray-300 hover:text-white transition-colors">
+                Галерея
               </NuxtLink>
             </li>
           </ul>
@@ -59,7 +60,7 @@
           <div class="space-y-2 text-gray-300">
             <p>{{ phone }}</p>
             <p>{{ email }}</p>
-            <p>Нягань, Россия</p>
+            <p>{{ city }}</p>
           </div>
         </div>
       </div>
@@ -70,5 +71,5 @@
 <script setup lang="ts">
 import useContacts from "~/composables/contacts/useContacts";
 
-const {phone, email} = useContacts()
+const {phone, email, city} = useContacts()
 </script>
