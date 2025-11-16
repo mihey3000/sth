@@ -21,7 +21,7 @@
                                             song.language }}</span>
                                 </div>
                             </div>
-                            <button class="text-gray-400 hover:text-primary transition-colors">
+                            <button v-if="showPreviewButton" class="text-gray-400 hover:text-primary transition-colors">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
@@ -87,6 +87,8 @@ const props = defineProps({
 
 // Emits
 const emit = defineEmits(['update:currentPage'])
+
+const showPreviewButton = false
 
 // Methods
 const goToPage = (page) => {
