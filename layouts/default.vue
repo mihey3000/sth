@@ -1,16 +1,11 @@
 <template>
-    <div class="min-h-screen bg-white">
-        <!-- Header -->
-        <AppHeader />
-
-        <!-- Main Content -->
-        <main>
-            <slot />
-        </main>
-
-        <!-- Footer -->
-        <AppFooter />
-    </div>
+  <div class="min-h-screen bg-white">
+    <AppHeader/>
+    <main>
+      <slot/>
+    </main>
+    <AppFooter/>
+  </div>
 </template>
 
 <script setup>
