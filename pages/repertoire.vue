@@ -7,7 +7,9 @@
                    :unique-decades="uniqueDecades"/>
     <SongsGrid :paginated-songs="paginatedSongs" :current-page="currentPage" :total-pages="totalPages"
                :visible-pages="visiblePages" @update:current-page="currentPage = $event"/>
-    <SongRequest v-model:new-song-request="newSongRequest" @submit-request="handleSongRequest"/>
+    <SongRequest v-model:new-song-request="newSongRequest" @submit-request="handleSongRequest"
+                 :is-submitting="isSubmittingRequest" :submission-message="submissionMessage"
+                 :submission-variant="submissionVariant"/>
     <RepertoireCTA/>
   </div>
 </template>
@@ -33,11 +35,15 @@ useHead({
 
 // Реактивные данные
 const showFilters = ref(false)
+const formspreeEndpoint = 'https://formspree.io/f/xblqpopb'
 const searchQuery = ref('')
 const selectedGenre = ref(null)
 const currentPage = ref(1)
 const itemsPerPage = 12
 const newSongRequest = ref('')
+const isSubmittingRequest = ref(false)
+const submissionMessage = ref('')
+const submissionVariant = ref('')
 
 // Жанры для фильтрации
 const genres = ['Поп', 'Рок', 'Джаз', 'Ретро', 'Классика', 'Современная', 'Русская', 'Зарубежная']
@@ -159,12 +165,52 @@ const visiblePages = computed(() => {
 })
 
 // Методы
-const handleSongRequest = (songRequest) => {
-  // Здесь будет логика обработки запроса новой песни
-  console.log('Запрос новой песни:', songRequest)
-  // Можно добавить отправку на сервер или показ уведомления
-  alert(`Спасибо! Мы рассмотрим ваш запрос на песню: "${songRequest}"`)
-  newSongRequest.value = ''
+const handleSongRequest = async (songRequest) => {
+  const requestText = songRequest.trim()
+  if (!requestText) {
+    submissionVariant.value = 'error'
+    submissionMessage.value = 'Пожалуйста, введите название песни и исполнителя.'
+    return
+  }
+
+  console.debug('Отправляем запрос новой песни', { requestText })
+  submissionMessage.value = ''
+  submissionVariant.value = ''
+  isSubmittingRequest.value = true
+
+  try {
+    const response = await fetch(formspreeEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        songRequest: requestText,
+        source: 'stereo-hit repertoire page'
+      })
+    })
+
+    console.debug('Ответ Formspree получен', { status: response.status })
+
+    if (!response.ok) {
+      const errorPayload = await response.json().catch(() => null)
+      console.debug('Formspree вернул ошибку', errorPayload)
+      submissionVariant.value = 'error'
+      submissionMessage.value = 'Не удалось отправить запрос. Попробуйте позже.'
+      return
+    }
+
+    submissionVariant.value = 'success'
+    submissionMessage.value = 'Спасибо! Мы получили ваш запрос.'
+    newSongRequest.value = ''
+  } catch (error) {
+    console.debug('Исключение при отправке в Formspree', error)
+    submissionVariant.value = 'error'
+    submissionMessage.value = 'Возникла ошибка при отправке. Попробуйте позже.'
+  } finally {
+    isSubmittingRequest.value = false
+  }
 }
 
 // Сброс страницы при изменении фильтров

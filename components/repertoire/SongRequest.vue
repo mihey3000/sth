@@ -10,9 +10,16 @@
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <input v-model="localSongRequest" type="text" placeholder="Название песни и исполнитель"
                         class="flex-1 px-6 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                    <button @click="submitRequest" class="btn-primary">
-                        Отправить запрос
+                    <button @click="submitRequest" class="btn-primary" :disabled="isSubmitting"
+                        :class="{'opacity-70 cursor-not-allowed': isSubmitting}">
+                        <span v-if="isSubmitting">Отправляем...</span>
+                        <span v-else>Отправить запрос</span>
                     </button>
+                </div>
+                <div v-if="submissionMessage" class="mt-4">
+                    <p :class="submissionVariant === 'success' ? 'text-green-600' : 'text-red-600'">
+                        {{ submissionMessage }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -25,6 +32,18 @@ const props = defineProps({
     newSongRequest: {
         type: String,
         required: true
+    },
+    isSubmitting: {
+        type: Boolean,
+        default: false
+    },
+    submissionMessage: {
+        type: String,
+        default: ''
+    },
+    submissionVariant: {
+        type: String,
+        default: ''
     }
 })
 
