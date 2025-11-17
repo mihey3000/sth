@@ -21,7 +21,7 @@
               </svg>
             </a>
             <!-- Telegram -->
-            <a href="https://t.me/ваш_username" class="text-gray-300 hover:text-white transition-colors"
+            <a v-if="telegramLink" :href="telegramLink" class="text-gray-300 hover:text-white transition-colors"
                title="Telegram">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -60,11 +60,11 @@
         <div>
           <h3 class="text-lg font-semibold mb-4">Контакты</h3>
           <div class="space-y-2 text-gray-300">
-            <p><a :href="phoneLink">{{ phone }}</a></p>
-            <p>
+            <p v-if="phone"><a :href="phoneLink">{{ phone }}</a></p>
+            <p v-if="emailLink">
               <a :href="emailLink">{{ email }}</a>
             </p>
-            <p>{{ city }}</p>
+            <p v-if="city">{{ city }}</p>
           </div>
         </div>
       </div>
@@ -75,5 +75,5 @@
 <script setup lang="ts">
 import useContacts from "~/composables/contacts/useContacts";
 
-const {phone, email, city, phoneLink, emailLink} = useContacts()
+const {phone, email, city, phoneLink, emailLink, telegramLink} = useContacts()
 </script>
