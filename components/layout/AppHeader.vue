@@ -15,7 +15,7 @@
           <NuxtLink to="/about" class="text-gray-700 hover:text-primary font-medium transition-colors">
             О группе
           </NuxtLink>
-          <NuxtLink to="/services" class="text-gray-700 hover:text-primary font-medium transition-colors">
+          <NuxtLink v-if="false" to="/services" class="text-gray-700 hover:text-primary font-medium transition-colors">
             Услуги
           </NuxtLink>
           <NuxtLink to="/repertoire" class="text-gray-700 hover:text-primary font-medium transition-colors">
@@ -24,7 +24,7 @@
           <NuxtLink to="/gallery" class="text-gray-700 hover:text-primary font-medium transition-colors">
             Галерея
           </NuxtLink>
-          <NuxtLink to="/reviews" class="text-gray-700 hover:text-primary font-medium transition-colors">
+          <NuxtLink v-if="false" to="/reviews" class="text-gray-700 hover:text-primary font-medium transition-colors">
             Отзывы
           </NuxtLink>
           <NuxtLink to="/contacts" class="text-gray-700 hover:text-primary font-medium transition-colors">

@@ -26,8 +26,8 @@
             </div>
           </div>
         </div>
-        <div class="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
-          <img :src="groupImg" alt="">
+        <div class=" flex items-center justify-center w-auto h-auto">
+          <img :src="groupImg" alt="" class="w-full rounded"/>
         </div>
       </div>
     </div>
@@ -35,5 +35,5 @@
 </template>
 
 <script setup lang="ts">
-import groupImg from '~/assets/img/ny.jpg'
+import groupImg from '~/assets/img/red.png'
 </script>

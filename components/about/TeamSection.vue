@@ -10,32 +10,36 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
         <div class="text-center">
-          <div class="w-48 h-48 bg-gray-300 rounded-full mx-auto mb-4"></div>
+          <div class="w-48 h-48 bg-gray-300 rounded-full mx-auto mb-4">
+            <img :src="dimaImg" alt="">
+          </div>
           <h3 class="text-xl font-semibold mb-2">Дмитрий Ткаченко</h3>
           <p class="text-primary font-medium mb-2">Вокал</p>
-          <p class="text-gray-600 text-sm">
-            Пару слов.
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div class="w-48 h-48 bg-gray-300 rounded-full mx-auto mb-4"></div>
-          <h3 class="text-xl font-semibold mb-2">Фролов Сергей</h3>
-          <p class="text-primary font-medium mb-2">Вокал, гитара</p>
-          <p class="text-gray-600 text-sm">
-            Пару слов.
-          </p>
+          <!--          <p class="text-gray-600 text-sm">-->
+          <!--            Пару слов.-->
+          <!--          </p>-->
         </div>
 
         <div class="text-center">
           <div class="w-48 h-48 bg-gray-300 rounded-full mx-auto mb-4">
+            <img :src="frolImg" alt="">
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Фролов Сергей</h3>
+          <p class="text-primary font-medium mb-2">Вокал, гитара</p>
+          <!--          <p class="text-gray-600 text-sm">-->
+          <!--            Пару слов.-->
+          <!--          </p>-->
+        </div>
 
+        <div class="text-center">
+          <div class="w-48 h-48 bg-gray-300 rounded-full mx-auto mb-4">
+            <img :src="franzImg" alt="">
           </div>
           <h3 class="text-xl font-semibold mb-2">Александр Житник</h3>
           <p class="text-primary font-medium mb-2">Вокал, гитара</p>
-          <p class="text-gray-600 text-sm">
-            Пару слов.
-          </p>
+          <!--          <p class="text-gray-600 text-sm">-->
+          <!--            Пару слов.-->
+          <!--          </p>-->
         </div>
 
         <div class="text-center">
@@ -44,18 +48,20 @@
           </div>
           <h3 class="text-xl font-semibold mb-2">Александр Касьянов</h3>
           <p class="text-primary font-medium mb-2">Ударные</p>
-          <p class="text-gray-600 text-sm">
-            Пару слов.
-          </p>
+          <!--          <p class="text-gray-600 text-sm">-->
+          <!--            Пару слов.-->
+          <!--          </p>-->
         </div>
 
         <div class="text-center">
-          <div class="w-48 h-48 bg-gray-300 rounded-full mx-auto mb-4"></div>
+          <div class="w-48 h-48 bg-gray-300 rounded-full mx-auto mb-4">
+            <img :src="miheyImg" alt="">
+          </div>
           <h3 class="text-xl font-semibold mb-2">Михаил Дронов</h3>
           <p class="text-primary font-medium mb-2">Бас-гитара</p>
-          <p class="text-gray-600 text-sm">
-            Пару слов.
-          </p>
+          <!--          <p class="text-gray-600 text-sm">-->
+          <!--            Пару слов.-->
+          <!--          </p>-->
         </div>
 
 
@@ -65,4 +71,8 @@
 </template>
 <script setup lang="ts">
 import kasyanovImg from '~/assets/img/kasyanov.png'
+import miheyImg from '~/assets/img/mihey.png'
+import franzImg from '~/assets/img/franz.png'
+import frolImg from '~/assets/img/frol.png'
+import dimaImg from '~/assets/img/dima.png'
 </script>
