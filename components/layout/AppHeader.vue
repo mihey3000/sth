@@ -3,9 +3,9 @@
     <div class="container-custom">
       <nav class="flex items-center justify-between py-4">
         <!-- Logo -->
-        <div class="flex items-center space-x-2 p-2">
-          <span class="text-2xl font-bold text-primary">СтереоХит</span>
-        </div>
+        <NuxtLink to="/" class="flex items-center space-x-2 p-2">
+          <span class="text-2xl font-bold text-primary">Стерео-Хит</span>
+        </NuxtLink>
 
         <!-- Desktop Navigation -->
         <div class="hidden md:flex items-center space-x-8">
@@ -49,27 +49,62 @@
       </nav>
 
       <!-- Mobile Navigation -->
-      <div v-if="mobileMenuOpen" class="md:hidden p-4 border-t">
+      <div
+          v-if="mobileMenuOpen"
+          class="md:hidden fixed inset-0 z-40 bg-black/40"
+          @click="closeMobileMenu"
+      ></div>
+      <div v-if="mobileMenuOpen" class="md:hidden p-4 border-t relative z-50 bg-white">
         <div class="flex flex-col space-y-4">
-          <NuxtLink to="/" class="text-gray-700 hover:text-primary font-medium transition-colors">
+          <NuxtLink
+              to="/"
+              class="text-gray-700 hover:text-primary font-medium transition-colors"
+              @click="closeMobileMenu"
+          >
             Главная
           </NuxtLink>
-          <NuxtLink to="/about" class="text-gray-700 hover:text-primary font-medium transition-colors">
+          <NuxtLink
+              to="/about"
+              class="text-gray-700 hover:text-primary font-medium transition-colors"
+              @click="closeMobileMenu"
+          >
             О группе
           </NuxtLink>
-          <NuxtLink to="/services" class="text-gray-700 hover:text-primary font-medium transition-colors">
+          <NuxtLink
+              v-if="false"
+              to="/services"
+              class="text-gray-700 hover:text-primary font-medium transition-colors"
+              @click="closeMobileMenu"
+          >
             Услуги
           </NuxtLink>
-          <NuxtLink to="/repertoire" class="text-gray-700 hover:text-primary font-medium transition-colors">
+          <NuxtLink
+              to="/repertoire"
+              class="text-gray-700 hover:text-primary font-medium transition-colors"
+              @click="closeMobileMenu"
+          >
             Репертуар
           </NuxtLink>
-          <NuxtLink to="/gallery" class="text-gray-700 hover:text-primary font-medium transition-colors">
+          <NuxtLink
+              to="/gallery"
+              class="text-gray-700 hover:text-primary font-medium transition-colors"
+              @click="closeMobileMenu"
+          >
             Галерея
           </NuxtLink>
-          <NuxtLink to="/reviews" class="text-gray-700 hover:text-primary font-medium transition-colors">
+          <NuxtLink
+              v-if="false"
+              to="/reviews"
+              class="text-gray-700 hover:text-primary font-medium transition-colors"
+              @click="closeMobileMenu"
+          >
             Отзывы
           </NuxtLink>
-          <NuxtLink to="/contacts" class="text-gray-700 hover:text-primary font-medium transition-colors">
+          <NuxtLink
+              to="/contacts"
+              class="text-gray-700 hover:text-primary font-medium transition-colors"
+              @click="closeMobileMenu"
+          >
             Контакты
           </NuxtLink>
           <button v-if="false" class="btn-primary w-full">
@@ -86,4 +121,8 @@ import useContacts from "~/composables/contacts/useContacts.js";
 
 const mobileMenuOpen = ref(false)
 const {phone, phoneLink} = useContacts()
+
+const closeMobileMenu = () => {
+  mobileMenuOpen.value = false
+}
 </script>

@@ -1,11 +1,11 @@
 <template>
-    <div>
-        <AboutHero />
-        <HistorySection />
-        <TeamSection />
-        <AchievementsSection />
-        <AboutCTA />
-    </div>
+  <div>
+    <AboutHero/>
+    <HistorySection/>
+    <TeamSection/>
+    <AchievementsSection/>
+    <AboutCTA/>
+  </div>
 </template>
 
 <script setup>
@@ -17,9 +17,12 @@ import AchievementsSection from '~/components/about/AchievementsSection.vue'
 import AboutCTA from '~/components/about/AboutCTA.vue'
 
 useHead({
-    title: 'О группе СтереоХит - Наша команда и история',
-    meta: [
-        { name: 'description', content: 'Познакомьтесь с командой СтереоХит. Наша история, участники группы и достижения. Профессиональные музыканты с многолетним опытом.' }
-    ]
+  title: 'О группе Стерео-Хит - Наша команда и история',
+  meta: [
+    {
+      name: 'description',
+      content: 'Познакомьтесь с командой Стерео-Хит. Наша история, участники группы и достижения. Профессиональные музыканты с многолетним опытом.'
+    }
+  ]
 })
 </script>

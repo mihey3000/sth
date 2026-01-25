@@ -5,7 +5,7 @@
         <!-- Logo and description -->
         <div class="col-span-1 md:col-span-2">
           <div class="flex items-center space-x-2 mb-4">
-            <span class="text-2xl font-bold">СтереоХит</span>
+            <span class="text-2xl font-bold">Стерео-Хит</span>
           </div>
           <p class="text-gray-300 mb-4">
             Профессиональная кавер группа, создающая незабываемые музыкальные моменты

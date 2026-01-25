@@ -4,8 +4,11 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
+    "clean:gallery": "node ./scripts/clean-gallery.mjs",
     "dev": "nuxt dev",
+    "predev": "node ./scripts/build-gallery.mjs",
     "generate": "nuxt generate",
+    "pregenerate": "node ./scripts/build-gallery.mjs",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "format": "prettier --write ."
@@ -20,6 +23,7 @@
   "dependencies": {
     "@nuxt/image": "^1.1.1",
     "@nuxt/ui": "^2.22.0",
-    "@nuxtjs/google-fonts": "^3.2.0"
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "sharp": "^0.33.5"
   }
 }

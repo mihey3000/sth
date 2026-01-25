@@ -6,8 +6,14 @@
                     @click="openLightbox(index)">
                     <div class="relative overflow-hidden rounded-lg shadow-lg group-hover:shadow-xl transition-shadow">
                         <div class="aspect-w-16 aspect-h-12 bg-gray-200 flex items-center justify-center">
-                            <span class="text-gray-500 text-lg">{{ item.type === 'photo' ? 'Фото' : 'Видео'
-                                }}</span>
+                            <img
+                                v-if="item.type === 'photo' && item.src"
+                                :src="encodeURI(item.src)"
+                                :alt="item.title || 'Фото'"
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                            />
+                            <span v-else class="text-gray-500 text-lg">Фото</span>
                         </div>
                         <div
                             class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">

@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    devtools: { enabled: false },
+    devtools: {enabled: false},
     compatibilityDate: '2025-10-06',
     modules: [
         '@nuxtjs/tailwindcss',
@@ -18,15 +18,18 @@ export default defineNuxtConfig({
     css: ['~/assets/css/main.css'],
     app: {
         head: {
-            title: 'СтереоХит - Кавер группа для корпоративов, свадеб и праздников',
+            title: 'Стерео-Хит - Кавер группа для корпоративов, свадеб и праздников',
             meta: [
-                { charset: 'utf-8' },
-                { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-                { name: 'description', content: 'Профессиональная кавер группа СтереоХит. Выступления на корпоративах, свадьбах, днях рождения. Качественная музыка и незабываемые эмоции.' },
-                { name: 'keywords', content: 'кавер группа, корпоративы, свадьбы, музыка, выступления, СтереоХит' }
+                {charset: 'utf-8'},
+                {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+                {
+                    name: 'description',
+                    content: 'Профессиональная кавер группа Стерео-Хит. Выступления на корпоративах, свадьбах, днях рождения. Качественная музыка и незабываемые эмоции.'
+                },
+                {name: 'keywords', content: 'кавер группа, корпоративы, свадьбы, музыка, выступления, Стерео-Хит'}
             ],
             link: [
-                { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+                {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
             ]
         }
     },

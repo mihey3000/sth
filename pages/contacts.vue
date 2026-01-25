@@ -10,7 +10,7 @@
       </div>
     </section>
     <FAQSection/>
-    <ContactsCTA/>
+    <ContactsCTA v-if="false"/>
   </div>
 </template>
 
@@ -24,11 +24,11 @@ import ContactsCTA from '~/components/contacts/ContactsCTA.vue'
 
 // SEO
 useHead({
-  title: 'Контакты СтереоХит - Заказать выступление кавер группы',
+  title: 'Контакты Стерео-Хит - Заказать выступление кавер группы',
   meta: [
     {
       name: 'description',
-      content: 'Контакты кавер группы СтереоХит. Телефон, email, форма заказа выступления. Корпоративы, свадьбы, дни рождения в Москве.'
+      content: 'Контакты кавер группы Стерео-Хит. Телефон, email, форма заказа выступления. Корпоративы, свадьбы, дни рождения в Москве.'
     }
   ]
 })

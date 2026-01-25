@@ -1,10 +1,10 @@
 <template>
-    <div>
-        <HeroSection />
-        <AboutSection />
-        <ServicesPreview />
-        <CTASection />
-    </div>
+  <div>
+    <HeroSection/>
+    <AboutSection/>
+    <ServicesPreview/>
+    <CTASection/>
+  </div>
 </template>
 
 <script setup>
@@ -16,13 +16,13 @@ import CTASection from '~/components/home/CTASection.vue'
 
 // SEO
 useHead({
-    title: "СтереоХит - Кавер группа для корпоративов, свадеб и праздников",
-    meta: [
-        {
-            name: "description",
-            content:
-                "Профессиональная кавер группа СтереоХит. Выступления на корпоративах, свадьбах, днях рождения. Качественная музыка и незабываемые эмоции.",
-        },
-    ],
+  title: "Стерео-Хит - Кавер группа для корпоративов, свадеб и праздников",
+  meta: [
+    {
+      name: "description",
+      content:
+          "Профессиональная кавер группа Стерео-Хит. Выступления на корпоративах, свадьбах, днях рождения. Качественная музыка и незабываемые эмоции.",
+    },
+  ],
 });
 </script>

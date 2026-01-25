@@ -1,7 +1,8 @@
 <template>
   <div>
     <RepertoireHero/>
-    <SearchFilters v-if="showFilters" v-model:search-query="searchQuery" v-model:selected-genre="selectedGenre" :genres="genres"
+    <SearchFilters v-if="showFilters" v-model:search-query="searchQuery" v-model:selected-genre="selectedGenre"
+                   :genres="genres"
                    :filtered-songs-count="filteredSongs.length" :unique-artists="uniqueArtists"
                    :unique-genres="uniqueGenres"
                    :unique-decades="uniqueDecades"/>
@@ -24,11 +25,11 @@ import RepertoireCTA from '~/components/repertoire/RepertoireCTA.vue'
 
 // SEO
 useHead({
-  title: 'Репертуар СтереоХит - Более 100 песен для вашего мероприятия',
+  title: 'Репертуар Стерео-Хит - Более 100 песен для вашего мероприятия',
   meta: [
     {
       name: 'description',
-      content: 'Репертуар кавер группы СтереоХит. Более 100 песен: русские хиты, зарубежная музыка, классика, современные треки. Поиск по жанрам и исполнителям.'
+      content: 'Репертуар кавер группы Стерео-Хит. Более 100 песен: русские хиты, зарубежная музыка, классика, современные треки. Поиск по жанрам и исполнителям.'
     }
   ]
 })

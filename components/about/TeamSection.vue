@@ -24,7 +24,7 @@
           <div class="w-48 h-48 bg-gray-300 rounded-full mx-auto mb-4">
             <img :src="frolImg" alt="">
           </div>
-          <h3 class="text-xl font-semibold mb-2">Фролов Сергей</h3>
+          <h3 class="text-xl font-semibold mb-2">Сергей Фролов</h3>
           <p class="text-primary font-medium mb-2">Вокал, гитара</p>
           <!--          <p class="text-gray-600 text-sm">-->
           <!--            Пару слов.-->
