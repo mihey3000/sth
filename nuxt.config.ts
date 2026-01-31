@@ -1,13 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    devtools: {enabled: false},
+    devtools: { enabled: false },
     compatibilityDate: '2025-10-06',
     modules: [
         '@nuxtjs/tailwindcss',
         '@nuxt/ui',
         '@nuxt/image',
-        '@nuxtjs/google-fonts'
+        '@nuxtjs/google-fonts',
+        '@nuxtjs/robots',
+        '@nuxtjs/sitemap'
     ],
+    site: {
+        url: process.env.NUXT_SITE_URL || 'http://localhost:3000',
+        name: 'Стерео-Хит'
+    },
     googleFonts: {
         families: {
             'Montserrat': [400, 500, 600, 700, 800, 900],
@@ -15,21 +21,29 @@ export default defineNuxtConfig({
             'Playfair+Display': [400, 500, 600, 700, 800, 900]
         }
     },
+    robots: {
+        disallow: ['/thanks', '/services', '/reviews'],
+        allow: ['/'],
+        sitemap: ['/sitemap.xml']
+    },
+    sitemap: {
+        exclude: ['/thanks', '/services', '/reviews']
+    },
     css: ['~/assets/css/main.css'],
     app: {
         head: {
             title: 'Стерео-Хит - Кавер группа для корпоративов, свадеб и праздников',
             meta: [
-                {charset: 'utf-8'},
-                {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+                { charset: 'utf-8' },
+                { name: 'viewport', content: 'width=device-width, initial-scale=1' },
                 {
                     name: 'description',
                     content: 'Профессиональная кавер группа Стерео-Хит. Выступления на корпоративах, свадьбах, днях рождения. Качественная музыка и незабываемые эмоции.'
                 },
-                {name: 'keywords', content: 'кавер группа, корпоративы, свадьбы, музыка, выступления, Стерео-Хит'}
+                { name: 'keywords', content: 'кавер группа, корпоративы, свадьбы, музыка, выступления, Стерео-Хит' }
             ],
             link: [
-                {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
+                { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
             ]
         }
     },

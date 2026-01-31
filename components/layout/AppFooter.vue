@@ -68,6 +68,23 @@
           </div>
         </div>
       </div>
+      <div class="mt-8 pt-6 border-t border-gray-800 text-sm text-gray-400 text-center">
+        <a
+            href="https://vk.com/id25829595"
+            class="inline-flex items-center gap-2 hover:text-white transition-colors"
+            title="Разработка сайта Михаил Дронов"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+          Разработка сайта Михаил Дронов
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 3h6v6"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14L21 3"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </footer>
 </template>
