@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class=" flex items-center justify-center w-auto h-auto">
-          <img :src="groupImg" alt="" class="w-full rounded"/>
+          <img :src="groupImg" alt="Стерео-Хит — Наша история" class="w-full rounded"/>
         </div>
       </div>
     </div>

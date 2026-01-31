@@ -18,17 +18,17 @@
               Заказать выступление
             </button>
             <button v-if="false"
-                    class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors text-lg">
+              class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors text-lg">
               Посмотреть репертуар
             </button>
             <button @click="callPhone"
-                    class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors text-lg">
+              class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors text-lg">
               {{ phone }}
             </button>
           </div>
         </div>
         <div class="relative">
-          <img :src="heroImage2" alt="">
+          <img :src="heroImage2" alt="Стерео-Хит — кавер-группа">
         </div>
       </div>
     </div>
@@ -39,5 +39,5 @@
 import useContacts from "~/composables/contacts/useContacts";
 import heroImage2 from 'assets/img/hero.png'
 
-const {callPhone, phone} = useContacts()
+const { callPhone, phone } = useContacts()
 </script>

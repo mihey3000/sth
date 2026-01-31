@@ -15,6 +15,26 @@
 </template>
 
 <script setup>
+const url = useRequestURL()
+
+useSeoMeta({
+  title: 'Спасибо за обращение — Стерео-Хит',
+  description: 'Сообщение успешно отправлено. Мы свяжемся с вами в ближайшее время и уточним все детали.',
+  ogTitle: 'Спасибо за обращение — Стерео-Хит',
+  ogDescription: 'Сообщение успешно отправлено. Мы свяжемся с вами в ближайшее время и уточним все детали.',
+  ogType: 'website',
+  ogUrl: url.href,
+  twitterCard: 'summary',
+  twitterTitle: 'Спасибо за обращение — Стерео-Хит',
+  twitterDescription: 'Сообщение успешно отправлено. Мы свяжемся с вами в ближайшее время и уточним все детали.'
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: url.href }
+  ]
+})
+
 definePageMeta({
   title: 'Спасибо за обращение — Стерео-хит'
 })

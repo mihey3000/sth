@@ -1,10 +1,10 @@
 <template>
   <div>
-    <AboutHero/>
-    <HistorySection/>
-    <TeamSection/>
-    <AchievementsSection/>
-    <AboutCTA/>
+    <AboutHero />
+    <HistorySection />
+    <TeamSection />
+    <AchievementsSection />
+    <AboutCTA />
   </div>
 </template>
 
@@ -16,13 +16,23 @@ import TeamSection from '~/components/about/TeamSection.vue'
 import AchievementsSection from '~/components/about/AchievementsSection.vue'
 import AboutCTA from '~/components/about/AboutCTA.vue'
 
-useHead({
+const url = useRequestURL()
+
+useSeoMeta({
   title: 'О группе Стерео-Хит - Наша команда и история',
-  meta: [
-    {
-      name: 'description',
-      content: 'Познакомьтесь с командой Стерео-Хит. Наша история, участники группы и достижения. Профессиональные музыканты с многолетним опытом.'
-    }
+  description: 'Познакомьтесь с командой Стерео-Хит. Наша история, участники группы и достижения. Профессиональные музыканты с многолетним опытом.',
+  ogTitle: 'О группе Стерео-Хит - Наша команда и история',
+  ogDescription: 'Познакомьтесь с командой Стерео-Хит. Наша история, участники группы и достижения. Профессиональные музыканты с многолетним опытом.',
+  ogType: 'website',
+  ogUrl: url.href,
+  twitterCard: 'summary',
+  twitterTitle: 'О группе Стерео-Хит - Наша команда и история',
+  twitterDescription: 'Познакомьтесь с командой Стерео-Хит. Наша история, участники группы и достижения. Профессиональные музыканты с многолетним опытом.'
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: url.href }
   ]
 })
 </script>

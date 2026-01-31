@@ -24,13 +24,23 @@ import ReviewsCTA from '~/components/reviews/ReviewsCTA.vue'
 import VideoModal from '~/components/reviews/VideoModal.vue'
 
 // SEO
-useHead({
+const url = useRequestURL()
+
+useSeoMeta({
   title: 'Отзывы о Стерео-Хит - Реальные отзывы клиентов кавер группы',
-  meta: [
-    {
-      name: 'description',
-      content: 'Отзывы клиентов о кавер группе Стерео-Хит. Реальные отзывы с корпоративов, свадеб, дней рождения. Видео отзывы и рейтинги.'
-    }
+  description: 'Отзывы клиентов о кавер группе Стерео-Хит. Реальные отзывы с корпоративов, свадеб, дней рождения. Видео отзывы и рейтинги.',
+  ogTitle: 'Отзывы о Стерео-Хит - Реальные отзывы клиентов кавер группы',
+  ogDescription: 'Отзывы клиентов о кавер группе Стерео-Хит. Реальные отзывы с корпоративов, свадеб, дней рождения. Видео отзывы и рейтинги.',
+  ogType: 'website',
+  ogUrl: url.href,
+  twitterCard: 'summary',
+  twitterTitle: 'Отзывы о Стерео-Хит - Реальные отзывы клиентов кавер группы',
+  twitterDescription: 'Отзывы клиентов о кавер группе Стерео-Хит. Реальные отзывы с корпоративов, свадеб, дней рождения. Видео отзывы и рейтинги.'
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: url.href }
   ]
 })
 

@@ -25,14 +25,18 @@ import LightboxModal from '~/components/gallery/LightboxModal.vue'
 import galleryManifest from '~/data/gallery-manifest.json'
 
 // SEO
-useHead({
+const url = useRequestURL()
+
+useSeoMeta({
   title: 'Галерея Стерео-Хит - Фото и видео наших выступлений',
-  meta: [
-    {
-      name: 'description',
-      content: 'Галерея кавер группы Стерео-Хит. Фото и видео с корпоративов, свадеб, дней рождения. Видео отзывы клиентов и портфолио выступлений.'
-    }
-  ]
+  description: 'Галерея кавер группы Стерео-Хит. Фото и видео с корпоративов, свадеб, дней рождения. Видео отзывы клиентов и портфолио выступлений.',
+  ogTitle: 'Галерея Стерео-Хит - Фото и видео наших выступлений',
+  ogDescription: 'Галерея кавер группы Стерео-Хит. Фото и видео с корпоративов, свадеб, дней рождения. Видео отзывы клиентов и портфолио выступлений.',
+  ogType: 'website',
+  ogUrl: url.href,
+  twitterCard: 'summary',
+  twitterTitle: 'Галерея Стерео-Хит - Фото и видео наших выступлений',
+  twitterDescription: 'Галерея кавер группы Стерео-Хит. Фото и видео с корпоративов, свадеб, дней рождения. Видео отзывы клиентов и портфолио выступлений.'
 })
 
 // Реактивные данные
@@ -43,6 +47,36 @@ const itemsPerLoad = 9
 const loadedItems = ref(itemsPerLoad)
 const galleryItems = computed(() => galleryManifest ?? [])
 const videoTestimonials = ref([])
+
+const galleryStructuredData = computed(() => {
+  const images = galleryItems.value.slice(0, 24).map((item) => {
+    if (!item?.src) {
+      return null
+    }
+    return new URL(item.src, url.origin).href
+  }).filter(Boolean)
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ImageGallery',
+    name: 'Галерея Стерео-Хит',
+    description: 'Фото и видео с корпоративов, свадеб, дней рождения и других мероприятий.',
+    url: url.href,
+    image: images
+  }
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: url.href }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: () => JSON.stringify(galleryStructuredData.value)
+    }
+  ]
+})
 
 const MANUAL_CATEGORY_ORDER = [
   '2025',

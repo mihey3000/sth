@@ -1,16 +1,16 @@
 <template>
   <div>
-    <ContactsHero/>
+    <ContactsHero />
     <section class="section-padding">
       <div class="container-custom">
-        <ContactInfo/>
+        <ContactInfo />
         <div v-if="false" class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <ContactForm/>
+          <ContactForm />
         </div>
       </div>
     </section>
-    <FAQSection/>
-    <ContactsCTA v-if="false"/>
+    <FAQSection />
+    <ContactsCTA v-if="false" />
   </div>
 </template>
 
@@ -23,13 +23,23 @@ import FAQSection from '~/components/contacts/FAQSection.vue'
 import ContactsCTA from '~/components/contacts/ContactsCTA.vue'
 
 // SEO
-useHead({
+const url = useRequestURL()
+
+useSeoMeta({
   title: 'Контакты Стерео-Хит - Заказать выступление кавер группы',
-  meta: [
-    {
-      name: 'description',
-      content: 'Контакты кавер группы Стерео-Хит. Телефон, email, форма заказа выступления. Корпоративы, свадьбы, дни рождения в Москве.'
-    }
+  description: 'Контакты кавер группы Стерео-Хит. Телефон, email, форма заказа выступления. Корпоративы, свадьбы, дни рождения в Москве.',
+  ogTitle: 'Контакты Стерео-Хит - Заказать выступление кавер группы',
+  ogDescription: 'Контакты кавер группы Стерео-Хит. Телефон, email, форма заказа выступления. Корпоративы, свадьбы, дни рождения в Москве.',
+  ogType: 'website',
+  ogUrl: url.href,
+  twitterCard: 'summary',
+  twitterTitle: 'Контакты Стерео-Хит - Заказать выступление кавер группы',
+  twitterDescription: 'Контакты кавер группы Стерео-Хит. Телефон, email, форма заказа выступления. Корпоративы, свадьбы, дни рождения в Москве.'
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: url.href }
   ]
 })
 </script>

@@ -18,13 +18,23 @@ import BirthdaySection from '~/components/services/BirthdaySection.vue'
 import PricingSection from '~/components/services/PricingSection.vue'
 import ServicesCTA from '~/components/services/ServicesCTA.vue'
 
-useHead({
+const url = useRequestURL()
+
+useSeoMeta({
   title: 'Услуги Стерео-Хит - Корпоративы, свадьбы, дни рождения',
-  meta: [
-    {
-      name: 'description',
-      content: 'Услуги кавер группы Стерео-Хит. Корпоративы, свадьбы, дни рождения. Профессиональные выступления с качественным звуком. Прозрачные цены.'
-    }
+  description: 'Услуги кавер группы Стерео-Хит. Корпоративы, свадьбы, дни рождения. Профессиональные выступления с качественным звуком. Прозрачные цены.',
+  ogTitle: 'Услуги Стерео-Хит - Корпоративы, свадьбы, дни рождения',
+  ogDescription: 'Услуги кавер группы Стерео-Хит. Корпоративы, свадьбы, дни рождения. Профессиональные выступления с качественным звуком. Прозрачные цены.',
+  ogType: 'website',
+  ogUrl: url.href,
+  twitterCard: 'summary',
+  twitterTitle: 'Услуги Стерео-Хит - Корпоративы, свадьбы, дни рождения',
+  twitterDescription: 'Услуги кавер группы Стерео-Хит. Корпоративы, свадьбы, дни рождения. Профессиональные выступления с качественным звуком. Прозрачные цены.'
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: url.href }
   ]
 })
 </script>

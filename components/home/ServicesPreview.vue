@@ -15,7 +15,7 @@
         <!-- Корпоративы -->
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
           <div class="h-48 bg-gradient-to-br from-primary to-text flex items-center justify-center  overflow-hidden">
-            <img :src="corpImage" alt="">
+            <img :src="corpImage" alt="Стерео-Хит — Корпоративы">
           </div>
           <div class="p-6">
             <h3 class="text-2xl font-bold mb-3">Корпоративы</h3>
@@ -33,7 +33,7 @@
         <!-- Свадьбы -->
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
           <div class="h-48 bg-gradient-to-br from-secondary to-accent flex items-center justify-center overflow-hidden">
-            <img :src="weddingImage" alt="">
+            <img :src="weddingImage" alt="Стерео-Хит — Свадьбы">
           </div>
           <div class="p-6">
             <h3 class="text-2xl font-bold mb-3">Свадьбы</h3>
@@ -52,7 +52,7 @@
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
           <div
               class="h-48 bg-gradient-to-br from-accent to-secondary flex items-center justify-center  overflow-hidden">
-            <img :src="birthDateImage" alt="">
+            <img :src="birthDateImage" alt="Стерео-Хит — Дни рождения">
           </div>
           <div class="p-6">
             <h3 class="text-2xl font-bold mb-3">
