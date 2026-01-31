@@ -41,18 +41,14 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Кнопка "Показать еще" -->
-            <div v-if="hasMoreItems" class="text-center mt-12">
-                <button @click="loadMore" class="btn-primary px-8 py-3">
-                    Показать еще
-                </button>
-            </div>
+            <div ref="loadMoreTrigger" class="h-px"></div>
         </div>
     </section>
 </template>
 
 <script setup>
+import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
+
 // Props
 const props = defineProps({
     filteredGallery: {
@@ -73,7 +69,47 @@ const openLightbox = (index) => {
     emit('openLightbox', index)
 }
 
-const loadMore = () => {
-    emit('loadMore')
+const loadMoreTrigger = ref(null)
+const isLoadingMore = ref(false)
+let observer = null
+
+const setupObserver = () => {
+    if (!loadMoreTrigger.value) {
+        return
+    }
+
+    observer = new IntersectionObserver((entries) => {
+        const entry = entries[0]
+        if (!entry?.isIntersecting) {
+            return
+        }
+        if (!props.hasMoreItems) {
+            return
+        }
+        if (isLoadingMore.value) {
+            return
+        }
+        isLoadingMore.value = true
+        emit('loadMore')
+        nextTick(() => {
+            isLoadingMore.value = false
+            if (!props.hasMoreItems && observer) {
+                observer.disconnect()
+            }
+        })
+    }, { root: null, rootMargin: '200px 0px', threshold: 0.1 })
+
+    observer.observe(loadMoreTrigger.value)
 }
+
+onMounted(() => {
+    setupObserver()
+})
+
+onBeforeUnmount(() => {
+    if (!observer) {
+        return
+    }
+    observer.disconnect()
+})
 </script>

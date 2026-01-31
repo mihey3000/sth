@@ -1,22 +1,15 @@
 <template>
   <div>
-    <GalleryHero/>
-    <GalleryFilters :categories="categories" v-model:selected-category="selectedCategory"/>
+    <GalleryHero />
+    <GalleryFilters :categories="categories" v-model:selected-category="selectedCategory" />
     <GalleryGrid :filtered-gallery="filteredGallery" :has-more-items="hasMoreItems" @open-lightbox="openLightbox"
-                 @load-more="loadMore"/>
+      @load-more="loadMore" />
 
-    <LightboxModal
-        :is-open="lightboxOpen"
-        :current-item="currentLightboxItem"
-        :has-prev="hasPrevItem"
-        :has-next="hasNextItem"
-        @close="closeLightbox"
-        @prev="showPrevItem"
-        @next="showNextItem"
-    />
+    <LightboxModal :is-open="lightboxOpen" :current-item="currentLightboxItem" :has-prev="hasPrevItem"
+      :has-next="hasNextItem" @close="closeLightbox" @prev="showPrevItem" @next="showNextItem" />
     <template v-if="false">
-      <VideoTestimonials :video-testimonials="videoTestimonials"/>
-      <GalleryCTA/>
+      <VideoTestimonials :video-testimonials="videoTestimonials" />
+      <GalleryCTA />
     </template>
   </div>
 </template>
@@ -48,17 +41,73 @@ const lightboxOpen = ref(false)
 const currentLightboxIndex = ref(0)
 const itemsPerLoad = 9
 const loadedItems = ref(itemsPerLoad)
-
 const galleryItems = computed(() => galleryManifest ?? [])
 const videoTestimonials = ref([])
+
+const MANUAL_CATEGORY_ORDER = [
+  '2025',
+  '07.03.2024',
+  '17.05 White party',
+  '2024.12.27_Уч-Кудук №3',
+  'Белоярский ДР Тани',
+  'Выпускной 2024',
+  'НГ'
+]
+
+const parseCategoryTimestamp = (category) => {
+  if (!category) {
+    return 0
+  }
+
+  const isoMatch = category.match(/(\d{4})[.\-_](\d{2})[.\-_](\d{2})/)
+  if (isoMatch) {
+    const [, year, month, day] = isoMatch
+    return new Date(Number(year), Number(month) - 1, Number(day)).getTime()
+  }
+
+  const ruMatch = category.match(/(\d{2})[.\-_](\d{2})[.\-_](\d{4})/)
+  if (ruMatch) {
+    const [, day, month, year] = ruMatch
+    return new Date(Number(year), Number(month) - 1, Number(day)).getTime()
+  }
+
+  const yearMatch = category.match(/(19|20)\d{2}/)
+  if (yearMatch) {
+    return new Date(Number(yearMatch[0]), 0, 1).getTime()
+  }
+
+  return 0
+}
+
+const parseItemTimestamp = (item) => {
+  if (!item) {
+    return 0
+  }
+  return parseCategoryTimestamp(item.date || item.category)
+}
 
 // Категории для фильтрации
 const categories = computed(() => {
   const uniqueCategories = new Set(
-      galleryItems.value.map((item) => item.category).filter(Boolean)
+    galleryItems.value.map((item) => item.category).filter(Boolean)
   )
 
-  return ['Все', ...Array.from(uniqueCategories).sort((a, b) => a.localeCompare(b, 'ru'))]
+  const baseCategories = Array.from(uniqueCategories)
+  const manualCategories = MANUAL_CATEGORY_ORDER.filter((category) =>
+    baseCategories.includes(category)
+  )
+  const remainingCategories = baseCategories.filter(
+    (category) => !manualCategories.includes(category)
+  )
+  const sortedRemaining = remainingCategories.sort((a, b) => {
+    const diff = parseCategoryTimestamp(b) - parseCategoryTimestamp(a)
+    if (diff) {
+      return diff
+    }
+    return a.localeCompare(b, 'ru')
+  })
+
+  return ['Все', ...manualCategories, ...sortedRemaining]
 })
 
 // Вычисляемые свойства
@@ -69,13 +118,17 @@ const filteredGallery = computed(() => {
     filtered = filtered.filter(item => item.category === selectedCategory.value)
   }
 
+  if (selectedCategory.value === 'Все') {
+    filtered = [...filtered].sort((a, b) => parseItemTimestamp(b) - parseItemTimestamp(a))
+  }
+
   return filtered.slice(0, loadedItems.value)
 })
 
 const hasMoreItems = computed(() => {
   const total = selectedCategory.value && selectedCategory.value !== 'Все'
-      ? galleryItems.value.filter(item => item.category === selectedCategory.value).length
-      : galleryItems.value.length
+    ? galleryItems.value.filter(item => item.category === selectedCategory.value).length
+    : galleryItems.value.length
 
   return loadedItems.value < total
 })
