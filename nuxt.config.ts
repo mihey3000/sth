@@ -42,9 +42,7 @@ export default defineNuxtConfig({
                 },
                 { name: 'keywords', content: 'кавер группа, корпоративы, свадьбы, музыка, выступления, Стерео-Хит' }
             ],
-            link: [
-                { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-            ]
+            link: []
         }
     },
     image: {
