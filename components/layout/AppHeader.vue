@@ -26,7 +26,9 @@
                 <NuxtLink to="/kaver-gruppa-nyagan" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
                   Нягань
                 </NuxtLink>
-                <!-- Сюда будем добавлять новые города: Сургут, Нижневартовск и т.д. -->
+                <NuxtLink to="/kaver-gruppa-khanty-mansiysk" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Ханты-Мансийск
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -98,6 +100,13 @@
                   @click="closeMobileMenu"
               >
                 Нягань
+              </NuxtLink>
+              <NuxtLink
+                  to="/kaver-gruppa-khanty-mansiysk"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Ханты-Мансийск
               </NuxtLink>
             </div>
           </div>
