@@ -26,6 +26,9 @@
                 <NuxtLink to="/kaver-gruppa-nyagan" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
                   Нягань
                 </NuxtLink>
+                <NuxtLink to="/kaver-gruppa-surgut" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Сургут
+                </NuxtLink>
                 <NuxtLink to="/kaver-gruppa-khanty-mansiysk" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
                   Ханты-Мансийск
                 </NuxtLink>
@@ -100,6 +103,13 @@
                   @click="closeMobileMenu"
               >
                 Нягань
+              </NuxtLink>
+              <NuxtLink
+                  to="/kaver-gruppa-surgut"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Сургут
               </NuxtLink>
               <NuxtLink
                   to="/kaver-gruppa-khanty-mansiysk"
