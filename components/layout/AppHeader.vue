@@ -9,12 +9,28 @@
 
         <!-- Desktop Navigation -->
         <div class="hidden md:flex items-center space-x-8">
-          <NuxtLink to="/" class="text-gray-700 hover:text-primary font-medium transition-colors">
-            Главная
-          </NuxtLink>
           <NuxtLink to="/about" class="text-gray-700 hover:text-primary font-medium transition-colors">
             О группе
           </NuxtLink>
+          
+          <!-- Cities Dropdown -->
+          <div class="relative group">
+            <button class="text-gray-700 hover:text-primary font-medium transition-colors flex items-center gap-1 py-2">
+              Города
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full mt-0 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-100">
+              <div class="py-2">
+                <NuxtLink to="/kaver-gruppa-nyagan" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Нягань
+                </NuxtLink>
+                <!-- Сюда будем добавлять новые города: Сургут, Нижневартовск и т.д. -->
+              </div>
+            </div>
+          </div>
+
           <NuxtLink v-if="false" to="/services" class="text-gray-700 hover:text-primary font-medium transition-colors">
             Услуги
           </NuxtLink>
@@ -54,15 +70,8 @@
           class="md:hidden fixed inset-0 z-40 bg-black/40"
           @click="closeMobileMenu"
       ></div>
-      <div v-if="mobileMenuOpen" class="md:hidden p-4 border-t relative z-50 bg-white">
+      <div v-if="mobileMenuOpen" class="md:hidden p-4 border-t relative z-50 bg-white max-h-[80vh] overflow-y-auto">
         <div class="flex flex-col space-y-4">
-          <NuxtLink
-              to="/"
-              class="text-gray-700 hover:text-primary font-medium transition-colors"
-              @click="closeMobileMenu"
-          >
-            Главная
-          </NuxtLink>
           <NuxtLink
               to="/about"
               class="text-gray-700 hover:text-primary font-medium transition-colors"
@@ -70,6 +79,29 @@
           >
             О группе
           </NuxtLink>
+          
+          <!-- Mobile Cities Dropdown -->
+          <div class="flex flex-col space-y-2">
+            <button 
+                @click="mobileCitiesOpen = !mobileCitiesOpen" 
+                class="flex items-center justify-between text-gray-700 hover:text-primary font-medium transition-colors w-full text-left"
+            >
+              <span>Города</span>
+              <svg :class="{'rotate-180': mobileCitiesOpen}" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div v-show="mobileCitiesOpen" class="flex flex-col space-y-3 pl-4 mt-2 border-l-2 border-gray-100">
+              <NuxtLink
+                  to="/kaver-gruppa-nyagan"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Нягань
+              </NuxtLink>
+            </div>
+          </div>
+
           <NuxtLink
               v-if="false"
               to="/services"
@@ -120,9 +152,11 @@
 import useContacts from "~/composables/contacts/useContacts.js";
 
 const mobileMenuOpen = ref(false)
+const mobileCitiesOpen = ref(false)
 const {phone, phoneLink} = useContacts()
 
 const closeMobileMenu = () => {
   mobileMenuOpen.value = false
+  mobileCitiesOpen.value = false
 }
 </script>

@@ -3,6 +3,7 @@
     <HeroSection/>
     <AboutSection/>
     <ServicesPreview/>
+    <SeoContent/>
     <CTASection/>
   </div>
 </template>
@@ -12,6 +13,7 @@
 import HeroSection from '~/components/home/HeroSection.vue'
 import AboutSection from '~/components/home/AboutSection.vue'
 import ServicesPreview from '~/components/home/ServicesPreview.vue'
+import SeoContent from '~/components/home/SeoContent.vue'
 import CTASection from '~/components/home/CTASection.vue'
 
 // SEO
