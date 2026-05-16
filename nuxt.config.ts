@@ -2,18 +2,29 @@
 export default defineNuxtConfig({
     devtools: { enabled: false },
     compatibilityDate: '2025-10-06',
+    devServer: {
+        port: 3020,
+        strictPort: true
+    },
     modules: [
+        '@nuxtjs/seo',
         '@nuxtjs/tailwindcss',
         '@nuxt/ui',
         '@nuxt/image',
+        '@vueuse/nuxt',
         '@nuxtjs/google-fonts',
         '@nuxtjs/robots',
         '@nuxtjs/sitemap'
     ],
     site: {
-        url: process.env.NUXT_SITE_URL || 'http://localhost:3000',
-        name: 'Стерео-Хит'
+        url: 'https://стереохит.рф',
+        name: 'Стерео-Хит',
+        description: 'Профессиональная кавер группа в ХМАО-Югра'
     },
+    seo: {
+        redirectToCanonicalSiteUrl: true
+    },
+    ogImage: false,
     googleFonts: {
         families: {
             'Montserrat': [400, 500, 600, 700, 800, 900],
