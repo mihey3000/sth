@@ -172,33 +172,51 @@
           <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
         </div>
         
-        <div class="hero-gradient text-white p-8 md:p-12 rounded-3xl shadow-2xl">
-          <div class="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 class="text-2xl font-bold mb-8 flex items-center">
-                <svg class="w-8 h-8 mr-3 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="hero-gradient text-white p-5 sm:p-8 md:p-12 rounded-3xl shadow-2xl min-w-0 overflow-hidden">
+          <div class="grid md:grid-cols-2 gap-8 md:gap-12 min-w-0">
+            <div class="min-w-0">
+              <h3 class="text-xl sm:text-2xl font-bold mb-6 md:mb-8 flex items-center min-w-0">
+                <svg class="w-7 h-7 sm:w-8 sm:h-8 mr-2 sm:mr-3 shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                 </svg>
-                Контакты
+                <span class="min-w-0">Контакты</span>
               </h3>
-              <div class="space-y-6 text-lg">
-                <p class="flex items-center"><span class="w-8 text-accent font-bold">01.</span> Позвоните нам: <a :href="phoneLink" class="ml-2 font-bold hover:text-accent transition-colors">{{ phone }}</a></p>
-                <p class="flex items-center"><span class="w-8 text-accent font-bold">02.</span> Напишите в Telegram: <a :href="telegramLink" target="_blank" class="ml-2 font-bold hover:text-accent transition-colors">@SergFroloff</a></p>
-                <p class="flex items-center"><span class="w-8 text-accent font-bold">03.</span> Отправьте запрос на почту: <a :href="emailLink" class="ml-2 font-bold hover:text-accent transition-colors">{{ email }}</a></p>
+              <div class="space-y-5 sm:space-y-6 text-base sm:text-lg">
+                <div class="flex gap-3 min-w-0">
+                  <span class="w-8 shrink-0 text-accent font-bold leading-snug pt-0.5">01.</span>
+                  <div class="min-w-0 flex-1 flex flex-col gap-1 md:flex-row md:flex-wrap md:items-baseline md:gap-x-2">
+                    <span class="text-white/90 shrink-0">Позвоните нам:</span>
+                    <a :href="phoneLink" class="font-bold hover:text-accent transition-colors break-words">{{ phone }}</a>
+                  </div>
+                </div>
+                <div class="flex gap-3 min-w-0">
+                  <span class="w-8 shrink-0 text-accent font-bold leading-snug pt-0.5">02.</span>
+                  <div class="min-w-0 flex-1 flex flex-col gap-1 md:flex-row md:flex-wrap md:items-baseline md:gap-x-2">
+                    <span class="text-white/90 shrink-0">Напишите в Telegram:</span>
+                    <a :href="telegramLink" target="_blank" class="font-bold hover:text-accent transition-colors break-all">@SergFroloff</a>
+                  </div>
+                </div>
+                <div class="flex gap-3 min-w-0">
+                  <span class="w-8 shrink-0 text-accent font-bold leading-snug pt-0.5">03.</span>
+                  <div class="min-w-0 flex-1 flex flex-col gap-1 md:flex-row md:flex-wrap md:items-baseline md:gap-x-2">
+                    <span class="text-white/90">Отправьте запрос на почту:</span>
+                    <a :href="emailLink" class="font-bold hover:text-accent transition-colors break-all">{{ email }}</a>
+                  </div>
+                </div>
               </div>
             </div>
-            
-            <div>
-              <h3 class="text-2xl font-bold mb-8 flex items-center">
-                <svg class="w-8 h-8 mr-3 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+            <div class="min-w-0">
+              <h3 class="text-xl sm:text-2xl font-bold mb-6 md:mb-8 flex items-center min-w-0">
+                <svg class="w-7 h-7 sm:w-8 sm:h-8 mr-2 sm:mr-3 shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
-                Условия
+                <span class="min-w-0">Условия</span>
               </h3>
               <div class="space-y-4">
-                <div v-for="cond in bookingConditions" :key="cond.t" class="bg-white/10 p-4 rounded-xl">
+                <div v-for="cond in bookingConditions" :key="cond.t" class="bg-white/10 p-4 rounded-xl min-w-0">
                   <span class="font-bold text-accent block mb-1">{{ cond.t }}</span>
-                  <span class="text-gray-200">{{ cond.d }}</span>
+                  <span class="text-gray-200 break-words leading-relaxed">{{ cond.d }}</span>
                 </div>
               </div>
             </div>
