@@ -23,14 +23,59 @@
             </button>
             <div class="absolute left-0 top-full mt-0 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-100">
               <div class="py-2">
+                <NuxtLink to="/kaver-gruppa-beloyarskiy" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Белоярский
+                </NuxtLink>
+                <NuxtLink to="/kaver-gruppa-kogalym" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Когалым
+                </NuxtLink>
+                <NuxtLink to="/kaver-gruppa-langepas" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Лангепас
+                </NuxtLink>
+                <NuxtLink to="/kaver-gruppa-megion" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Мегион
+                </NuxtLink>
+                <NuxtLink to="/kaver-gruppa-nefteyugansk" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Нефтеюганск
+                </NuxtLink>
+                <NuxtLink to="/kaver-gruppa-nizhnevartovsk" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Нижневартовск
+                </NuxtLink>
                 <NuxtLink to="/kaver-gruppa-nyagan" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
                   Нягань
+                </NuxtLink>
+                <NuxtLink to="/kaver-gruppa-oktyabrskiy" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Октябрьский
+                </NuxtLink>
+                <NuxtLink to="/kaver-gruppa-pokachi" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Покачи
+                </NuxtLink>
+                <NuxtLink to="/kaver-gruppa-priobye" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Приобье
+                </NuxtLink>
+                <NuxtLink to="/kaver-gruppa-pyt-yakh" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Пыть-Ях
+                </NuxtLink>
+                <NuxtLink to="/kaver-gruppa-raduzhniy" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Радужный
+                </NuxtLink>
+                <NuxtLink to="/kaver-gruppa-sovetskiy" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Советский
                 </NuxtLink>
                 <NuxtLink to="/kaver-gruppa-surgut" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
                   Сургут
                 </NuxtLink>
+                <NuxtLink to="/kaver-gruppa-uray" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Урай
+                </NuxtLink>
                 <NuxtLink to="/kaver-gruppa-khanty-mansiysk" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
                   Ханты-Мансийск
+                </NuxtLink>
+                <NuxtLink to="/kaver-gruppa-sherkaly" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Шеркалы
+                </NuxtLink>
+                <NuxtLink to="/kaver-gruppa-yugorsk" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                  Югорск
                 </NuxtLink>
               </div>
             </div>
@@ -98,11 +143,95 @@
             </button>
             <div v-show="mobileCitiesOpen" class="flex flex-col space-y-3 pl-4 mt-2 border-l-2 border-gray-100">
               <NuxtLink
+                  to="/kaver-gruppa-beloyarskiy"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Белоярский
+              </NuxtLink>
+              <NuxtLink
+                  to="/kaver-gruppa-kogalym"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Когалым
+              </NuxtLink>
+              <NuxtLink
+                  to="/kaver-gruppa-langepas"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Лангепас
+              </NuxtLink>
+              <NuxtLink
+                  to="/kaver-gruppa-megion"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Мегион
+              </NuxtLink>
+              <NuxtLink
+                  to="/kaver-gruppa-nefteyugansk"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Нефтеюганск
+              </NuxtLink>
+              <NuxtLink
+                  to="/kaver-gruppa-nizhnevartovsk"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Нижневартовск
+              </NuxtLink>
+              <NuxtLink
                   to="/kaver-gruppa-nyagan"
                   class="text-gray-600 hover:text-primary transition-colors"
                   @click="closeMobileMenu"
               >
                 Нягань
+              </NuxtLink>
+              <NuxtLink
+                  to="/kaver-gruppa-oktyabrskiy"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Октябрьский
+              </NuxtLink>
+              <NuxtLink
+                  to="/kaver-gruppa-pokachi"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Покачи
+              </NuxtLink>
+              <NuxtLink
+                  to="/kaver-gruppa-priobye"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Приобье
+              </NuxtLink>
+              <NuxtLink
+                  to="/kaver-gruppa-pyt-yakh"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Пыть-Ях
+              </NuxtLink>
+              <NuxtLink
+                  to="/kaver-gruppa-raduzhniy"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Радужный
+              </NuxtLink>
+              <NuxtLink
+                  to="/kaver-gruppa-sovetskiy"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Советский
               </NuxtLink>
               <NuxtLink
                   to="/kaver-gruppa-surgut"
@@ -112,11 +241,32 @@
                 Сургут
               </NuxtLink>
               <NuxtLink
+                  to="/kaver-gruppa-uray"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Урай
+              </NuxtLink>
+              <NuxtLink
                   to="/kaver-gruppa-khanty-mansiysk"
                   class="text-gray-600 hover:text-primary transition-colors"
                   @click="closeMobileMenu"
               >
                 Ханты-Мансийск
+              </NuxtLink>
+              <NuxtLink
+                  to="/kaver-gruppa-sherkaly"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Шеркалы
+              </NuxtLink>
+              <NuxtLink
+                  to="/kaver-gruppa-yugorsk"
+                  class="text-gray-600 hover:text-primary transition-colors"
+                  @click="closeMobileMenu"
+              >
+                Югорск
               </NuxtLink>
             </div>
           </div>
